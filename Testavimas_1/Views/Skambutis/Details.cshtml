@@ -1,0 +1,48 @@
+﻿@model Testavimas_1.Models.Skambutis
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Išsamiau</h1>
+
+<div>
+    <h4>Skambutis</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Atsiliepta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Atsiliepta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Laikas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Laikas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trukme)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trukme)
+        </dd>
+        <dt class="col-sm-2">
+            Darbuotojo ID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Darbuotojas.Id)
+        </dd>
+        <dt class="col-sm-2">
+            Darbuotojo vardas
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Darbuotojas.Vardas)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Redaguoti</a> |
+    <a asp-action="List">Atgal</a>
+</div>

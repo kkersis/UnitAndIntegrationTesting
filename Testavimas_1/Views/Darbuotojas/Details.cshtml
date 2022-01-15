@@ -1,0 +1,28 @@
+﻿@model Testavimas_1.Models.Darbuotojas
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<div>
+    <h4>Darbuotojas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vardas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vardas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Miestas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Miestas)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Redaguoti</a> |
+    <a asp-action="List">Atgal</a>
+</div>

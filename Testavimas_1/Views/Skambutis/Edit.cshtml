@@ -1,0 +1,53 @@
+﻿@model Testavimas_1.ViewModels.CreateSkambutisViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Redaguoti</h1>
+
+<h4>Skambutis</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Skambutis.Id" />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Skambutis.Atsiliepta" /> @Html.DisplayNameFor(model => model.Skambutis.Atsiliepta)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skambutis.Laikas" class="control-label"></label>
+                <input asp-for="Skambutis.Laikas" class="form-control" />
+                <span asp-validation-for="Skambutis.Laikas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skambutis.Darbuotojas"></label>
+                <p>
+                    @Html.DropDownListFor(m => m.Skambutis.DarbuotojasId,
+                                        new SelectList(Model.Darbuotojai, "Id", "Vardas"),
+                                        "Pasirinkite darbuotoją")
+                </p>
+                <span class="text-danger" asp-validation-for="Skambutis.DarbuotojasId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skambutis.Trukme" class="control-label"></label>
+                <input asp-for="Skambutis.Trukme" class="form-control" />
+                <span asp-validation-for="Skambutis.Trukme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Atnaujinti" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Grįžti atgal</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

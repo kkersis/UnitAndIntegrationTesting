@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Testavimas_1.Models.Skambutis>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Skambučiai</h1>
+
+<p>
+    <a asp-action="Create">Pridėti naują</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Atsiliepta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Laikas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trukme)
+            </th>
+            <th>
+                Darbuotojo ID
+            </th>
+            <th>
+                Darbuotojo vardas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Atsiliepta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Laikas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trukme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Darbuotojas.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Darbuotojas.Vardas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Redaguoti</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Išsamiau</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Ištrinti</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
